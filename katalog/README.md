@@ -5,7 +5,7 @@ NPM  = 2106637776
 ---
 
 # BAGAN
-![Bagan MVT](https://github.com/vwjaya32/tugas2/blob/main/baganMVT.png)
+![Bagan MVT](https://github.com/vwjaya32/tugas2/blob/main/baganMVT.png)  
 
 # VIRTUAL ENVIRONMENT
 _Web_ berbasis Django tetap dapat dibuat tanpa harus menggunakan _virtual environment_. Penggunaan _virtual environment_ dianjurkan karena kebutuhan modul-modul pada sebuah projek berbeda dengan projek yang lainnya, termasuk kebutuhan versi suatu modul. Perbedaan ini memungkinkan terjadinya _error_ apabila seseorang ingin menjalankan dua program yang membutuhkan sebuah modul dengan versi yang berbeda (salah satu program membutuhkan versi yang lebih lama). Dengan menggunakan _virtual environment_ kebutuhan modul (serta versinya) dapat diatur sesuai dengan kebutuhan projek dan instalasi modul yang dilakukan tidak akan berdampak ke dalam sistem secara global.   [Referensi](https://youtu.be/mOwgdXT6WMM).
