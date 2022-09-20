@@ -1,0 +1,112 @@
+[
+    {
+        "model": "mywatchlist.MyWatchList",
+        "pk": 1,
+        "fields": {
+            "watched"     : true,
+            "title"       : "Avengers: Endgame",
+            "rating"      : 4.2,
+            "release_date": "April 24, 2019",
+            "review"      : "This film is an emotional rollercoaster with some of the coolest superhero plot lines ever drawn up. It's straight up the most epic Marvel film that will probably ever be created."
+        }
+    },
+    {
+        "model": "mywatchlist.MyWatchList",
+        "pk": 2,
+        "fields": {
+            "watched"     : true,
+            "title"       : "Weathering With You",
+            "rating"      : 3.7,
+            "release_date": "August 21, 2019",
+            "review"      : "First of all the soundtrack was top notch. The animation was beautiful, but the plot felt a little bit messy"
+        }
+    },
+    {
+        "model": "mywatchlist.MyWatchList",
+        "pk": 3,
+        "fields": {
+            "watched"     : false,
+            "title"       : "A Whisker Away",
+            "rating"      : 3.3,
+            "release_date": "June 18, 2020",
+            "review"      : "The animation is not bad, but not really noteworthy. The story isn't that bad. This film feels like a combination of what Studio Ghibli and traditional Disney animated films"
+        }
+    },
+    {
+        "model": "mywatchlist.MyWatchList",
+        "pk": 4,
+        "fields": {
+            "watched"     : false,
+            "title"       : "Spider-Man: No Way Home",
+            "rating"      : 4.1,
+            "release_date": "December 15, 2021",
+            "review"      : "Spider-Man: No Way Home is a phenomenal conclusion to the trilogy and Holland's best outing as Spidey yet. Starts off fun, safe and familiar and then becomes extremely emotional, satisfying and full of great callbacks"
+        }
+    },
+    {
+        "model": "mywatchlist.MyWatchList",
+        "pk": 5,
+        "fields": {
+            "watched"     : false,
+            "title"       : "Joker",
+            "rating"      : 4.2,
+            "release_date": "October 2, 2019",
+            "review"      : "Enjoy this masterpiece because Joaquin Phoenix and Todd Phillips overdid themselves with this movie . The acting,music and cinematography are just amazing !"
+        }
+    },
+    {
+        "model": "mywatchlist.MyWatchList",
+        "pk": 6,
+        "fields": {
+            "watched"     : true,
+            "title"       : "Demon Slayer the Movie: Mugen Train",
+            "rating"      : 4.1,
+            "release_date": "January 6, 2021",
+            "review"      : "If you liked the animation of the season 1 of demon slayer you will simply adore this film this is a true masterpiece with a captivating story and music that will make you cry , a must watch for any fan of the show ."
+        }
+    },
+    {
+        "model": "mywatchlist.MyWatchList",
+        "pk": 7,
+        "fields": {
+            "watched"     : false,
+            "title"       : "Logan",
+            "rating"      : 4.0,
+            "release_date": "March 1, 2017",
+            "review"      : "This really is one of the best superhero movies of all time. And best of all, it doesn't even feel like a superhero movie. Fantastic story and great acting all around."
+        }
+    },
+    {
+        "model": "mywatchlist.MyWatchList",
+        "pk": 8,
+        "fields": {
+            "watched"     : true,
+            "title"       : "Fate Grand Order: The Final Singularity",
+            "rating"      : 3.8,
+            "release_date": "November 10, 2021",
+            "review"      : "In terms of visual, there is not really much to complain because it was splendid and the background itself really good."
+        }
+    },
+    {
+        "model": "mywatchlist.MyWatchList",
+        "pk": 9,
+        "fields": {
+            "watched"     : false,
+            "title"       : "Gonjiam: Haunted Asylum",
+            "rating"      : 3.1,
+            "release_date": "May 30, 2018",
+            "review"      : "This is a found footage film. It's not much different than others out there but it did a great job of building tension once it got going."
+        }
+    },
+    {
+        "model": "mywatchlist.MyWatchList",
+        "pk": 10,
+        "fields": {
+            "watched"     : true,
+            "title"       : "Kung Fu Panda",
+            "rating"      : 3.8,
+            "release_date": "June 13, 2008",
+            "review"      : "From little kids just looking for some simple fun for a little while to adults looking for a more compelling experience that makes you feel for the characters, this one's for everyone. Funny action adventure with some wise words scattered throughout."
+        }
+    }
+]

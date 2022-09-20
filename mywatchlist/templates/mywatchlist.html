@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+ {% block content %}
+
+  <h1 style = "text-align: center;">Tugas 3 PBP/PBD</h1>
+
+  <h5 style = "margin-bottom: -10px; ">Name: </h5>
+  <p>{{nama}}</p>
+
+  <h5 style = "margin-bottom: -10px;">Student ID: </h5>
+  <p style = "margin-bottom: 50px;">{{student_id}}</p>
+
+  <table BORDER = "1">
+    <tr>
+      <th>Watched</th>
+      <th>Title</th>
+      <th>Rating</th>
+      <th>Release Date</th>
+      <th>Review</th>
+    </tr>
+    {% comment %} Add the data below this line {% endcomment %}
+    {% for item in list_film %}
+    <tr>
+      <td>{{item.watched}}</td>
+      <td>{{item.title}}</td>
+      <td>{{item.rating}}</td>
+      <td>{{item.release_date}}</td>
+      <td>{{item.review}}</td>
+    </tr>
+{% endfor %}
+  </table>
+
+{% endblock content %}
