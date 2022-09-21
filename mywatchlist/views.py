@@ -1,17 +1,17 @@
 from django.shortcuts import render
-import mywatchlist
 from mywatchlist.models import MyWatchList
 from django.http import HttpResponse
 from django.core import serializers
 
 # Create your views here.
 def show_mywatchlist(request):
-    data_mywatchlist = MyWatchList.objects.all
-    watchlist        = MyWatchList.objects.count()
-    watched_count    = MyWatchList.objects.filter(watched=True).count()
+    data_mywatchlist  = MyWatchList.objects.all
+    not_watched_count = MyWatchList.objects.filter(watched=False).count()
+    watched_count     = MyWatchList.objects.filter(watched=True).count()
+    half_watched      = True if watched_count >= not_watched_count else False
     
     context = {
-        'half_watched'  : True if watched_count >= (watchlist/2) else False,
+        'half_watched'  : half_watched,
         'h_nama'        : 'Nama:',
         'h_student_id'  : 'Student ID:',
         'list_film'     : data_mywatchlist,
@@ -21,8 +21,13 @@ def show_mywatchlist(request):
     return render (request, "mywatchlist.html", context)
 
 def show_html(request):
+    not_watched_count = MyWatchList.objects.filter(watched=False).count()
+    watched_count     = MyWatchList.objects.filter(watched=True).count()
+    half_watched      = True if watched_count >= not_watched_count else False
+    
     data = MyWatchList.objects.all
     context = {
+        'half_watched'  : half_watched,
         'list_film': data,
     }
     return render (request, "mywatchlist.html", context)
