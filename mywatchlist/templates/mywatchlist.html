@@ -4,10 +4,10 @@
 
   <h1 style = "text-align: center;">Tugas 3 PBP/PBD</h1>
 
-  <h5 style = "margin-bottom: -10px; ">Name: </h5>
+  <h5 style = "margin-bottom: -10px; ">{{h_nama}} </h5>
   <p>{{nama}}</p>
 
-  <h5 style = "margin-bottom: -10px;">Student ID: </h5>
+  <h5 style = "margin-bottom: -10px;">{{h_student_id}} </h5>
   <p style = "margin-bottom: 50px;">{{student_id}}</p>
 
   <table BORDER = "1">
@@ -29,5 +29,12 @@
     </tr>
 {% endfor %}
   </table>
+
+  {% if half_watched %}
+    <h3 style = "text-align: center;"> Selamat, kamu sudah banyak menonton! </h3>
+
+    {% else %}
+    <h3 style = "text-align: center;"> Wah, kamu masih sedikit menonton! </h3>
+  {% endif %}
 
 {% endblock content %}

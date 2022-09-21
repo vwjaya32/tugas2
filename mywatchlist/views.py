@@ -1,4 +1,5 @@
 from django.shortcuts import render
+import mywatchlist
 from mywatchlist.models import MyWatchList
 from django.http import HttpResponse
 from django.core import serializers
@@ -6,10 +7,23 @@ from django.core import serializers
 # Create your views here.
 def show_mywatchlist(request):
     data_mywatchlist = MyWatchList.objects.all
+    watchlist        = MyWatchList.objects.count()
+    watched_count    = MyWatchList.objects.filter(watched=True).count()
+    
     context = {
-        'list_film': data_mywatchlist,
-        'nama': 'Vinsen Wijaya',
-        'student_id': '2106637776'
+        'half_watched'  : True if watched_count >= (watchlist/2) else False,
+        'h_nama'        : 'Nama:',
+        'h_student_id'  : 'Student ID:',
+        'list_film'     : data_mywatchlist,
+        'nama'          : 'Vinsen Wijaya',
+        'student_id'    : '2106637776'
+    }
+    return render (request, "mywatchlist.html", context)
+
+def show_html(request):
+    data = MyWatchList.objects.all
+    context = {
+        'list_film': data,
     }
     return render (request, "mywatchlist.html", context)
 
