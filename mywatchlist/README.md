@@ -41,6 +41,8 @@ _File extension_ : `.html`
   
   
 # Pentingnya _Data Delivery_  
+_Data Delivery_ digunakan untuk menyambungkan _database_ dengan _request user_.Selain itu bentuk _data delivery_ juga dapat digunakan untuk mempermudah bentuk pengiriman data dari satu web ke web lain. Tanpa adanya _data delivery_, data tidak dapat ditampilkan pada suatu web dan tidak ada bentuk penyimpanan dan pengiriman data yang efisien.
+
 # Langkah Implementasi
 
 - [x] Membuat suatu aplikasi baru bernama mywatchlist di proyek Django Tugas 2 pekan lalu  
