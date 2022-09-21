@@ -147,3 +147,11 @@ urlpatterns = [
 - [x] Melakukan deployment ke Heroku terhadap aplikasi yang sudah kamu buat sehingga nantinya dapat diakses oleh teman-temanmu melalui Internet.  
       Git add, commit, dan push dari repositori lokal. Dikarenakan saya menggunakan folder tugas 2 yang sebelumnya telah menjalankan prosedur _deployment_, maka hasil pekerjaan dapat langsung dilihat dengan [_link_ Heroku yang sama](https://pbp-tugas2-vinsen.herokuapp.com/mywatchlist/).
 <br />
+
+# Postman _Screenshot_
+### HTML
+![Postman_HTML](https://github.com/vwjaya32/tugas2/blob/main/postman_html.jpg)
+### XML
+![Postman_XML](https://github.com/vwjaya32/tugas2/blob/main/postman_xml.jpg)
+### JSON
+![Postman_JSON](https://github.com/vwjaya32/tugas2/blob/main/postman_json.jpg)
