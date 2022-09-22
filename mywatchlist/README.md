@@ -50,7 +50,7 @@ _Data Delivery_ digunakan untuk menyambungkan _database_ dengan _request user_.S
 2. Masuk ke dalam Virtual Environment  
 3. Jalankan 
 ```python
-py manage.py startapp mywatchlist`
+py manage.py startapp mywatchlist
 ```  
 <br/>
       
