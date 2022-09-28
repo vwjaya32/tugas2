@@ -41,6 +41,8 @@ _File extension_ : `.html`
   
   
 # Pentingnya _Data Delivery_  
+_Data Delivery_ digunakan untuk menyambungkan _database_ dengan _request user_.Selain itu bentuk _data delivery_ juga dapat digunakan untuk mempermudah bentuk pengiriman data dari satu web ke web lain. Tanpa adanya _data delivery_, data tidak dapat ditampilkan pada suatu web dan tidak ada bentuk penyimpanan dan pengiriman data yang efisien.
+
 # Langkah Implementasi
 
 - [x] Membuat suatu aplikasi baru bernama mywatchlist di proyek Django Tugas 2 pekan lalu  
@@ -48,7 +50,7 @@ _File extension_ : `.html`
 2. Masuk ke dalam Virtual Environment  
 3. Jalankan 
 ```python
-py manage.py startapp mywatchlist`
+py manage.py startapp mywatchlist
 ```  
 <br/>
       
@@ -147,3 +149,11 @@ urlpatterns = [
 - [x] Melakukan deployment ke Heroku terhadap aplikasi yang sudah kamu buat sehingga nantinya dapat diakses oleh teman-temanmu melalui Internet.  
       Git add, commit, dan push dari repositori lokal. Dikarenakan saya menggunakan folder tugas 2 yang sebelumnya telah menjalankan prosedur _deployment_, maka hasil pekerjaan dapat langsung dilihat dengan [_link_ Heroku yang sama](https://pbp-tugas2-vinsen.herokuapp.com/mywatchlist/).
 <br />
+
+# Postman _Screenshot_
+### HTML
+![Postman_HTML](https://github.com/vwjaya32/tugas2/blob/main/postman_html.jpg)
+### XML
+![Postman_XML](https://github.com/vwjaya32/tugas2/blob/main/postman_xml.jpg)
+### JSON
+![Postman_JSON](https://github.com/vwjaya32/tugas2/blob/main/postman_json.jpg)
