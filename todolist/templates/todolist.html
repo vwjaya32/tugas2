@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}  
+<h1> TO DO LIST </h1>
+<h3> Welcome, {{user}} </h3>
+
+<button><a href="{% url 'todolist:new_task' %}">Tambah Task Baru</a></button>
+
+<br> </br>
+<table BORDER = "1">
+    <tr>
+      <th style="width:20%">Date</th>
+      <th style="width:20%">Title</th>
+      <th style="width:20%">Description</th>
+      <th style="width:20%">Status</th>
+    </tr>
+    {% comment %} Add the data below this line {% endcomment %}
+    {% for item in data_list %}
+    <tr>
+      <td style="text-align:center;
+                 white-space:nowrap">{{item.date}}</td>
+      <td style="text-align:center;
+                 white-space:nowrap">{{item.title}}</td>
+      <td style="text-align:center;
+                 white-space:nowrap">{{item.description}}</td>
+      <td style="text-align:center;
+                 white-space:nowrap"> {% if item.is_finished %}
+                                        Selesai {% else %}
+                                        Belum Selesai
+                                        {% endif %}</td>
+      
+      <td style="white-space:nowrap">
+        <button><a href="{% url 'todolist:status' item.id %}"> Ganti Status </a> </button>
+      </td>                    
+
+      <td style="white-space:nowrap">
+        <button><a href="{% url 'todolist:remove_task' item.id %}"> Hapus </a></button>
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+<br></br>
+<button><a href="{% url 'todolist:logout' %}">Logout</a></button>
+{% endblock content %}
