@@ -156,4 +156,41 @@ urlpatterns = [
 
 - [x] Membuat **dua** akun pengguna dan **tiga** _dummy data_ menggunakan model `Task` pada akun masing-masing di situs web Heroku.
 1. Menambah 2 akun baru pada app Heroku
-2. Memanfaatkan fitur Tambah Task Baru untuk menambahkan tiga dummy data
+2. Memanfaatkan fitur Tambah Task Baru untuk menambahkan tiga dummy data  
+
+---
+
+# Tugas 5
+## Internal vs External vs Inline  
+
+| Perbedaan          | Internal                                                                                                     | External                                                                                                   | Inline                                                                                                                                    |
+|--------------------|--------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
+| Definisi           | Memasukkan CSS dengan memasukkan tag <style> pada header                                                     | Memasukkan CSS dengan file terpisah berekstensi .css                                                       | Memasukkan CSS dengan mendefinisikan <style> langsung pada tag elemen HTML                                                                |
+| Prioritas          | Kedua                                                                                                        | Ketiga                                                                                                     | Pertama                                                                                                                                   |
+| Tag yang berkaitan | <style> pada setiap page HTML                                                                                | <link>                                                                                                     | <style> pada setiap tag HTML                                                                                                              |
+| Manfaat            | - Tidak perlu upload File - Dapat melakukan perubahan pada 1 page yang tidak memengaruhi page lain           | - File HTML terlihat lebih rapi - Loading file lebih cepat - Dapat digunakan untuk beberapa page sekaligus | - Proses load website lebih cepat - Berguna untuk memperbaiki kode dengan cepat - Membantu apabila hanya 1 elemen saja yang ingin dilihat |
+| Kekurangan         | Performa website lebih lamban dan tidak efisien apabila style  ingin diterapkan pada beberapa file sekaligus | Jika file CSS gagal diload, maka halaman website akan berantakan                                           | Tidak efisien                                                                                                                             |
+   
+## Tag HTML5
+| TAG       | Penjelasan                                     |
+|-----------|------------------------------------------------|
+| <a>       | Mendefinisikan _hyperlink_                     |
+| <body>    | Mendefinisikan badan dokumen                   |
+| <br>      | Spasi baris                                    |
+| <form>    | Mendefinisikan form                            |
+| <picture> | Mendefinisikan container untuk beberapa gambar |
+| <title>   | Mendefinisikan Judul dokumen                   |
+| <video>   | Memasukkan video pada dokumen HTML             |
+   
+## CSS Selector
+| CSS Selector | Penjelasan seleksi                                             |
+|--------------|----------------------------------------------------------------|
+| Element      | Menggunakan nama elemen (tag)                                  |
+| ID           | Menggunakan id elemen                                          |
+| Class        | Menggunakan atribut _class_                                    |
+| Universal    | Menggunakan *                                                  |
+| Group        | Menggunakan beberapa selector di atas (dipisahkan dengan koma) |
+   
+## LANGKAH-LANGKAH IMPLEMENTASI
+
+
