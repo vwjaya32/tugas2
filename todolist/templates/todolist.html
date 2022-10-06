@@ -1,44 +1,49 @@
 {% extends 'base.html' %}
+<style>
+    .card{
+     transition: all 0.2s ease;
+   }
+   .card:hover {
+     transform: scale(1.05);
+     box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+   }
+</style>
 
-{% block content %}  
-<h1> TO DO LIST </h1>
-<h3> Welcome, {{user}} </h3>
-
-<button><a href="{% url 'todolist:new_task' %}">Tambah Task Baru</a></button>
-
-<br> </br>
-<table BORDER = "1">
-    <tr>
-      <th style="width:20%">Date</th>
-      <th style="width:20%">Title</th>
-      <th style="width:20%">Description</th>
-      <th style="width:20%">Status</th>
-    </tr>
-    {% comment %} Add the data below this line {% endcomment %}
-    {% for item in data_list %}
-    <tr>
-      <td style="text-align:center;
-                 white-space:nowrap">{{item.date}}</td>
-      <td style="text-align:center;
-                 white-space:nowrap">{{item.title}}</td>
-      <td style="text-align:center;
-                 white-space:nowrap">{{item.description}}</td>
-      <td style="text-align:center;
-                 white-space:nowrap"> {% if item.is_finished %}
-                                        Selesai {% else %}
-                                        Belum Selesai
-                                        {% endif %}</td>
-      
-      <td style="white-space:nowrap">
-        <button><a href="{% url 'todolist:status' item.id %}"> Ganti Status </a> </button>
-      </td>                    
-
-      <td style="white-space:nowrap">
-        <button><a href="{% url 'todolist:remove_task' item.id %}"> Hapus </a></button>
-      </td>
-    </tr>
-    {% endfor %}
-  </table>
+{% block content %}
 <br></br>
-<button><a href="{% url 'todolist:logout' %}">Logout</a></button>
+<div class="d-flex justify-content-center">
+  <a class="btn btn-warning" href="{% url 'todolist:new_task' %}" role="button"> Tambah Task Baru </a>
+</div>
+<br></br>
+
+{% comment %} Add the data below this line {% endcomment %}
+{% for item in data_list %}
+
+<div class="d-flex justify-content-center">
+  <div class="card-deck mt-4">
+    <div class="card" style="width:500px;">
+        <div class="card-header">
+          <h6 class="card-subtitle"> {{item.date}} </h6>
+        </div>
+      <div class="card-body hover">
+        <div class="card-body">
+            <h5 class="card-title"> {{item.title}}</h5>
+            <p>{% if item.is_finished %} 
+              Selesai 
+            {% else %}
+              Belum selesai
+            {% endif %}
+            </p>
+            <p class="card-text"> {{item.description}} </p>
+            <a class="btn btn-warning" href="{% url 'todolist:status' item.id %}" role="button"> Ganti Status </a>
+            <a class="btn btn-danger" href="{% url 'todolist:remove_task' item.id %}" role="button"> Hapus </a>
+          </div>
+        </div>
+      </div>
+    </div>
+      <br></br>
+  </div>
+</div>
+  {% endfor %}
+
 {% endblock content %}
