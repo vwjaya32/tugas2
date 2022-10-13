@@ -20,4 +20,3 @@ AJAX memungkinkan web untuk meng-update kontennya secara asinkronus, itu berarti
 3. Implementasi function AJAX (loadCard dan makeCard untuk menampilkan kartu serta mengimplementasikan event-driven programming pada button dalam modal) 
 4. Implementasi routing
 5. Implementasi tutup modal dengan `$("#add-task-modal").modal("hide")`
-6. 
