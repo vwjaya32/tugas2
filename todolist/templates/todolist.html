@@ -1,46 +1,148 @@
 {% extends 'base.html' %}
+
+{% block meta %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+
 <style>
-   .card:hover {
-     transform: scale(1.05);
-     box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
-   }
+  .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+  }
 </style>
 
-{% block content %}
-<br></br>
-<div class="d-flex justify-content-center">
-  <a class="btn btn-warning" href="{% url 'todolist:new_task' %}" role="button"> Tambah Task Baru </a>
-</div>
-<br></br>
+<script>
+$(document).ready(function(){
+  loadCard();
+});
 
-{% comment %} Add the data below this line {% endcomment %}
-{% for item in data_list %}
-
-<div class="d-flex justify-content-center">
-  <div class="card-deck mt-4 mb-4">
+function makeCard(title, date, description, is_finished, id){
+  $("#card-list").append(`
     <div class="card" style="width:500px;">
         <div class="card-header">
-          <h6 class="card-subtitle"> {{item.date}} </h6>
+          <h6 class="card-subtitle"> ${date} </h6>
         </div>
       <div class="card-body hover">
         <div class="card-body">
-            <h5 class="card-title"> {{item.title}}</h5>
-            <p>{% if item.is_finished %} 
-              Selesai 
-            {% else %}
-              Belum selesai
-            {% endif %}
+            <h5 class="card-title"> ${title} </h5>
+            <p> ${is_finished}
             </p>
-            <p class="card-text"> {{item.description}} </p>
-            <a class="btn btn-warning" href="{% url 'todolist:status' item.id %}" role="button"> Ganti Status </a>
-            <a class="btn btn-danger" href="{% url 'todolist:remove_task' item.id %}" role="button"> Hapus </a>
+            <p class="card-text"> ${description} </p>
+            <a class="btn btn-warning" href= "task-status/${id}" role="button"> Ganti Status </a>
+            <a class="btn btn-outline-danger" href= "remove-task/${id}" role="button"> Hapus </a>
           </div>
         </div>
       </div>
     </div>
-      <br></br>
+    <br><br/>
+  `
+  )
+}
+
+function loadCard(){
+  $.ajax({
+    type: "GET",
+    url : "{% url 'todolist:show_json' %}",
+    dataType: "json",
+    success: function (datas){
+      $("#card-list").empty();
+      for (let data of datas){
+        let title = data.fields.title;
+        let date  = data.fields.date;
+        let description = data.fields.description;
+        let is_finished = data.fields.is_finished ? 
+        "<span class='badge text-bg-success'> Selesai </span>" :
+        "<span class='badge text-bg-danger'> Belum Selesai </span>" ;
+        let id = data.pk;
+
+        makeCard(title, date, description, is_finished, id);
+      }
+    },
+    error: function (response){
+      console.log('GET error');
+    }
+  });
+}
+
+$(document).on('submit', '#addTaskForm', function(event) {
+  event.preventDefault();
+  $.ajax({
+    type    : "POST",
+    url     : "{% url 'todolist:add_task' %}",
+    dataType: 'json',
+    data    : $("form#addTaskForm").serialize(),
+    success: function(data){
+      document.getElementById("addTaskForm").reset();
+      $("#add-task-modal").modal("hide")
+      loadCard();
+    }
+  })
+})
+</script>
+
+{% endblock meta %}
+
+{% block content %}
+
+<nav class="navbar navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand"> {{user}} </a>
+    <div>
+      <a class="btn btn-outline-warning" href="{% url 'todolist:logout' %}" role="button">
+        Logout
+      </a>
+    </div>
+  </div>
+</nav>
+
+<br></br>
+<div class="d-flex justify-content-center mb-4">
+  <a class="btn btn-warning btn-lg" href="{% url 'todolist:new_task' %}" role="button"> 
+    Tambah Task Baru 
+  </a>
+</div>
+
+
+<!-- Button trigger modal -->
+<div class = "row justify-content-center">
+  <div class="col-md-8 text-center">
+    <button type="button" class="btn btn-outline-dark btn-lg" data-bs-toggle="modal" data-bs-target="#add-task-modal">
+      Add Task
+    </button>
   </div>
 </div>
-  {% endfor %}
+
+<!-- Modal -->
+<div class="modal fade" id="add-task-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel"> New Task </h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form method ="POST" action="" class="form-create-task" id="addTaskForm">
+          {% csrf_token %}
+            <fieldset>
+                <input class="form-control mb-3" type="text" placeholder="Task Title" name="title">
+                <textarea class="form-control mb-3" rows="3" placeholder="Description"
+                    name="description"></textarea>
+            </fieldset>
+            <button class="btn btn-warning" type="submit" name= "Submit"> Submit </button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal"> Cancel </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="d-flex justify-content-center">
+  <div class="card-deck" id="card-list">
+    <br><br/>
+  </div>
+</div>
 
 {% endblock content %}
