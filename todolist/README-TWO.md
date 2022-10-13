@@ -1,3 +1,11 @@
+Nama = Vinsen Wijaya  
+NPM  = 2106637776  
+[Link Heroku](https://pbp-tugas2-vinsen.herokuapp.com/todolist/)
+
+---
+
+# TUGAS 6
+
 ## Synchronous vs Asynchronous Programming
 Synchronous programming: pendekatan dalam pemrograman di mana program yang dihasilkan akan mengerjakan tugas yang diberikan secara bertahap (_sequential order_) sehingga tugas yang baru diinput baru akan dikerjakan setelah tugas sebelumnya selesai.
 
